@@ -11,26 +11,16 @@
 <div th:insert="fragments/header :: header"></div>
 
 <div class="container">
-    <h1 class="display-6">Add Restaurant</h1>
+    <h1 class="display-6">Add Review</h1>
 
-    <form th:action="@{/restaurant/add}" th:object="${restaurantRequest}"
-          method="POST">
+    <form th:action="@{/review/add}" method="POST">
+
+        <input type="hidden" name="restaurantId" th:value="${restaurantId}" id="restaurantId">
         <div class="mb-3">
-            <label for="nameInput" class="form-label">Name</label>
-            <input class="form-control" id="nameInput" th:field="*{name}" type="text">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            <label for="reviewTextInput" class="form-label">Review</label>
+            <input id="reviewTextInput" type="text" class="form-control" name="reviewText">
         </div>
-        <div class="mb-3">
-            <label for="addressInput" class="form-label">Address</label>
-            <input class="form-control" id="addressInput" th:field="*{address}" type="text">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
-        </div>
-        <div class="mb-3">
-            <label for="ratingInput" class="form-label">Rating</label>
-            <input class="form-control" id="ratingInput" th:field="*{rating}" type="text">
-            <div class="alert alert-warning" th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}"></div>
-        </div>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary">Add Review</button>
     </form>
 </div>
 </body>
